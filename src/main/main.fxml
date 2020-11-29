@@ -18,7 +18,7 @@
             <Font name="Serif Regular" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lbl_answer" layoutX="74.0" layoutY="72.0" prefHeight="38.0" prefWidth="445.0" style="-fx-font-style: italic;">
+      <Label fx:id="lbl_answer" layoutX="74.0" layoutY="72.0" prefHeight="38.0" prefWidth="445.0" style="-fx-font-style: italic; -fx-padding: 5;">
          <font>
             <Font name="Serif Regular" size="21.0" />
          </font>
@@ -39,7 +39,7 @@
          </stroke>
       </Rectangle>
       <Line fx:id="line_answerBubble" endX="113.0" endY="-54.0" layoutX="118.0" layoutY="94.0" startX="22.0" startY="-23.0" />
-      <Button fx:id="btn_done" layoutX="457.0" layoutY="320.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="109.0" text="Done!">
+      <Button fx:id="btn_done" layoutX="457.0" layoutY="320.0" mnemonicParsing="false" onMouseClicked="#ask" prefHeight="25.0" prefWidth="109.0" text="Done!">
          <font>
             <Font name="Serif Regular" size="15.0" />
          </font>

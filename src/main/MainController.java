@@ -1,5 +1,6 @@
 package main;
 
+import com.sun.tools.javac.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -28,10 +29,11 @@ public class MainController implements Initializable {
     @FXML private Label lbl_askMeSomething = new Label();
     @FXML private TextArea txta_questionInput = new TextArea();
     @FXML private Button btn_done = new Button();
+    MainModel mainModel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        mainModel = new MainModel();
     }
 
     public static void show(Stage stage) {
@@ -49,5 +51,13 @@ public class MainController implements Initializable {
             ex.printStackTrace(System.err);
             System.exit(1);
         }
+    }
+
+    @FXML
+    public void ask() {
+        String question = txta_questionInput.getText();
+        String answer = mainModel.getRandomAnswer(question);
+        lbl_answer.setText(answer);
+        System.out.println("Test");
     }
 }
