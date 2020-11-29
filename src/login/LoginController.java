@@ -70,7 +70,6 @@ public class LoginController implements Initializable {
     @FXML
     private void confirmLogin() {
         //navigate from login screen to main screen
-        System.out.println("Navigation started ...");
         //open a new (main) stage
         MainController.show(new Stage());
         //close the current login stage

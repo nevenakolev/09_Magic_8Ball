@@ -57,7 +57,22 @@ public class MainController implements Initializable {
     public void ask() {
         String question = txta_questionInput.getText();
         String answer = mainModel.getRandomAnswer(question);
+        switch(mainModel.getAnswerType()) {
+            case "positive":
+                lbl_logo.setText("ヾ(≧▽≦*)o");
+                break;
+
+            case "negative":
+                lbl_logo.setText("ヾ(≧へ≦)〃");
+                break;
+
+            case "neutral":
+                lbl_logo.setText("   (._. )>");
+                break;
+
+            case "no question":
+                lbl_logo.setText("  (。_。) ? ? ?");
+        }
         lbl_answer.setText(answer);
-        System.out.println("Test");
     }
 }

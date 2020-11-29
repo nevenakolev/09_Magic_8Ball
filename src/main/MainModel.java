@@ -6,6 +6,8 @@ import java.util.Random;
 
 public class MainModel {
     Random rd = new Random();
+    MainController mainctrl = new MainController();
+    String answerType;
 
     //lists with answers separated in positive, negative and neutral
     private ArrayList<String> posAnswer = new ArrayList<>(
@@ -35,16 +37,29 @@ public class MainModel {
                     "Concentrate and ask again.")
     );
 
+    //Methods
+    public void setAnswerType(String answerType) {
+        this.answerType = answerType;
+    }
+
+    public String getAnswerType() {
+        return answerType;
+    }
+
     public String getRandomAnswer(String question) {
         if(!question.contains("?")) {
+            setAnswerType("no question");
             return "Please enter a question :(";
-        } else if(question.contains("Math") || question.contains("SEW")) {
+        } else if(question.toUpperCase().contains("MATH") || question.toUpperCase().contains("SEW")) {
+            setAnswerType("positive");
             return posAnswer.get(rd.nextInt(posAnswer.size()));
         } else {
             int choice = rd.nextInt(2);
             if(choice == 0) {
+                setAnswerType("neutral");
                 return neutAnswer.get(rd.nextInt(neutAnswer.size()));
             } else {
+                setAnswerType("negative");
                 return negAnswer.get(rd.nextInt(negAnswer.size()));
             }
         }
