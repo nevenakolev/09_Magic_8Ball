@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="login.LoginController"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F6DD89;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.LoginController">
+   <children>
+      <Rectangle fx:id="rect_border" arcHeight="5.0" arcWidth="5.0" fill="#1f96ff00" height="353.0" layoutX="13.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="574.0" />
+      <Button fx:id="btn_login" layoutX="456.0" layoutY="320.0" mnemonicParsing="false" onMouseClicked="#confirmLogin" prefHeight="25.0" prefWidth="109.0" text="Login">
+         <font>
+            <Font name="Serif Regular" size="15.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtf_passwordInput" layoutX="34.0" layoutY="230.0" prefHeight="38.0" prefWidth="531.0" promptText="Password">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtf_userNameInput" layoutX="34.0" layoutY="146.0" prefHeight="38.0" prefWidth="531.0" promptText="UserName" translateY="5.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lbl_userName" layoutX="40.0" layoutY="129.0" text="Username">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_password" layoutX="40.0" layoutY="206.0" text="Password">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_welcome" layoutX="186.0" layoutY="56.0" prefHeight="38.0" prefWidth="229.0" style="-fx-font-style: italic;" text="Welcome to Magic 8 Ball! ">
+         <font>
+            <Font name="Serif Regular" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_logo" layoutX="203.0" layoutY="-3.0" prefHeight="59.0" prefWidth="205.0" style="-fx-background-color: #F6DD89; -fx-padding: 5;" text="ヾ(≧▽≦*)o" textAlignment="CENTER">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

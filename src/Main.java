@@ -1,7 +1,6 @@
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import login.LoginController;
 
 /**
  * @author Nevena Kolev
@@ -10,7 +9,8 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        
+        //opens the login window
+        LoginController.showStage(primaryStage);
     }
 
     public static void main(String[] args) {
