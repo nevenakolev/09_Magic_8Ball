@@ -29,6 +29,7 @@ public class LoginController implements Initializable {
     @FXML private TextField txtf_userNameInput = new TextField();
     @FXML private TextField txtf_password = new TextField();
     @FXML private Button btn_login = new Button();
+    LoginModel loginModel;
 
     //getter and setter
     public void setStage(Stage stage) {
@@ -37,7 +38,7 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        loginModel = new LoginModel();
     }
 
     public static void showStage(Stage stage) {
@@ -69,10 +70,14 @@ public class LoginController implements Initializable {
 
     @FXML
     private void confirmLogin() {
-        //navigate from login screen to main screen
-        //open a new (main) stage
-        MainController.show(new Stage());
-        //close the current login stage
-        stage.close();
+        if(loginModel.isCorrectLogin(txtf_userNameInput.getText(), txtf_password.getText())) {
+            //navigate from login screen to main screen
+            //open a new (main) stage
+            MainController.show(new Stage());
+            //close the current login stage
+            stage.close();
+        } else {
+            System.out.println("Wrong password / username. Please try again!");
+        }
     }
 }

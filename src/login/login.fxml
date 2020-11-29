@@ -16,7 +16,7 @@
             <Font name="Serif Regular" size="15.0" />
          </font>
       </Button>
-      <TextField fx:id="txtf_passwordInput" layoutX="34.0" layoutY="230.0" prefHeight="38.0" prefWidth="531.0" promptText="Password">
+      <TextField fx:id="txtf_password" layoutX="34.0" layoutY="230.0" prefHeight="38.0" prefWidth="531.0" promptText="Password">
          <font>
             <Font size="15.0" />
          </font>
