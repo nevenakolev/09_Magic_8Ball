@@ -23,7 +23,7 @@
             <Font name="Serif Regular" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="lbl_logo" contentDisplay="CENTER" layoutX="203.0" layoutY="-3.0" prefHeight="59.0" prefWidth="205.0" style="-fx-background-color: #F6DD89; -fx-padding: 5;" text="ヾ(≧▽≦*)o" textAlignment="CENTER">
+      <Label fx:id="lbl_logo" contentDisplay="CENTER" layoutX="203.0" layoutY="-3.0" prefHeight="59.0" prefWidth="205.0" style="-fx-background-color: #F6DD89; -fx-padding: 5; -fx-text-alignment: center;" text="ヾ(≧▽≦*)o" textAlignment="CENTER">
          <font>
             <Font size="33.0" />
          </font>

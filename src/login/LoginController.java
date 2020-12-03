@@ -7,10 +7,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import main.MainController;
+import signUp.SignUpController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,17 +21,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class LoginController implements Initializable {
-    //attributes
+    //elements
     private Stage stage;
+    private LoginModel loginModel;
+    //.fxml elements
     @FXML private Rectangle rect_border = new Rectangle();
     @FXML private Label lbl_logo = new Label();
     @FXML private Label lbl_welcome = new Label();
     @FXML private Label lbl_userName = new Label();
     @FXML private Label lbl_password = new Label();
     @FXML private TextField txtf_userNameInput = new TextField();
-    @FXML private TextField txtf_password = new TextField();
+    @FXML private PasswordField pswf_password = new PasswordField();
     @FXML private Button btn_login = new Button();
-    LoginModel loginModel;
+    @FXML private Button btn_signUp = new Button();
 
     //getter and setter
     public void setStage(Stage stage) {
@@ -41,7 +45,7 @@ public class LoginController implements Initializable {
         loginModel = new LoginModel();
     }
 
-    public static void showStage(Stage stage) {
+    public static void showLoginStage(Stage stage) {
         try {
             //loads the .fxml file that is associated to this controller
             FXMLLoader fxmlLoader = new FXMLLoader(LoginController.class.getResource("login.fxml"));
@@ -62,22 +66,40 @@ public class LoginController implements Initializable {
 
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-            System.err.println("Something wrong with welcome.fxml!");
+            System.err.println("Something wrong with login.fxml!");
             ex.printStackTrace(System.err);
             System.exit(1);
         }
     }
 
     @FXML
-    private void confirmLogin() {
-        if(loginModel.isCorrectLogin(txtf_userNameInput.getText(), txtf_password.getText())) {
-            //navigate from login screen to main screen
-            //open a new (main) stage
-            MainController.show(new Stage());
-            //close the current login stage
-            stage.close();
-        } else {
-            System.out.println("Wrong password / username. Please try again!");
+    public void confirmLogin() {
+        //get entered data
+        String usernameInput = txtf_userNameInput.getText();
+        String passwordInput = pswf_password.getText();
+
+        //check if the userManagement.login is correct
+        String feedback = loginModel.validateLogin(usernameInput, passwordInput);
+
+        switch (feedback) {
+            case "Correct login.":
+                //navigate from userManagement.login screen to main screen
+                MainController.show(new Stage());
+                //close the current userManagement.login stage
+                this.stage.close();
+                break;
+
+            case "Incorrect password. Please try again.":
+                System.out.println("Incorrect password. Please try again.");
+                break;
+
+            case "User doesn't exist.":
+                System.out.println("user doesn't exist");
         }
+    }
+
+    @FXML
+    public void startSignUp() {
+        SignUpController.showStage(new Stage());
     }
 }

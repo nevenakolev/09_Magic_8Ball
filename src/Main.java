@@ -9,8 +9,8 @@ import login.LoginController;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //opens the login window
-        LoginController.showStage(primaryStage);
+        //opens the userManagement.login window
+        LoginController.showLoginStage(primaryStage);
     }
 
     public static void main(String[] args) {
